@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150522090856) do
   end
 
   create_table "exams", force: :cascade do |t|
-    t.time     "time_complete"
+    t.datetime "start_at"
     t.integer  "mark"
     t.integer  "status"
     t.integer  "categories_id"
