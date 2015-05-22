@@ -1,7 +1,7 @@
 class CreateExams < ActiveRecord::Migration
   def change
     create_table :exams do |t|
-      t.time :time_complete
+      t.datetime :start_at
       t.integer :mark
       t.integer :status
       t.references :categories, index: true, foreign_key: true
