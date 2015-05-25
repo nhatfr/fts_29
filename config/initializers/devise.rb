@@ -6,13 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '1d2cdeb909684ef8349ecfde4b9b13851f156c1d3ff4e0347227805a6961c5f1c2f18909799ca7ea407c41b9186ecf5bb54209ebfdb5a6a7afe0e17d0bd6990a'
+  # config.secret_key = '5d60b1d18859d6c63d3615998bce38caf36cf7d4631c6fb94fb8f7dcfb64d56a010d06c7744760aed670b156c4af92c312a85406d2ef5ae49637b86b057aaa28'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'Framgia-Education System'
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -99,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '56873c1357ceef1c2535a7b336b82ef284a49b0a2c2f2c51b240a7650dd4339d222b2049794c9f096a6c1f7d789eee958863ab8476547d3d70e06db3bfbe9ad8'
+  # config.pepper = '79d76e21b04ce838b8bb6350681e5143c96c5a5cf8b04e520563ba0608eb4b6bd0dfc0eadfcefa30c3a73144f73b551598d02428f39f24843507e2cd64a3dffe'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -128,7 +128,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  config.remember_for = 2.weeks
+  # config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
   config.expire_all_remember_me_on_sign_out = true
@@ -211,7 +211,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = true
+  # config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
