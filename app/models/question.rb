@@ -5,4 +5,6 @@ class Question < ActiveRecord::Base
   
   accepts_nested_attributes_for :answers, allow_destroy: true,
                                  reject_if: :all_blank
+
+  scope :random_questions, ->number{limit(number).sort_by{rand}} 
 end
