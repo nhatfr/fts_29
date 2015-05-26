@@ -4,8 +4,8 @@ class CreateExams < ActiveRecord::Migration
       t.datetime :start_at
       t.integer :mark
       t.integer :status
-      t.references :categories, index: true, foreign_key: true
-      t.references :users, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
