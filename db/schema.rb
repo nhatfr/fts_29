@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 20150525044208) do
   create_table "answers", force: :cascade do |t|
     t.string   "content"
     t.boolean  "correct"
-    t.integer  "questions_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "answers", ["questions_id"], name: "index_answers_on_questions_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -35,35 +35,35 @@ ActiveRecord::Schema.define(version: 20150525044208) do
     t.datetime "start_at"
     t.integer  "mark"
     t.integer  "status"
-    t.integer  "categories_id"
-    t.integer  "users_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "exams", ["categories_id"], name: "index_exams_on_categories_id"
-  add_index "exams", ["users_id"], name: "index_exams_on_users_id"
+  add_index "exams", ["category_id"], name: "index_exams_on_category_id"
+  add_index "exams", ["user_id"], name: "index_exams_on_user_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "content"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "questions", ["categories_id"], name: "index_questions_on_categories_id"
+  add_index "questions", ["category_id"], name: "index_questions_on_category_id"
 
   create_table "results", force: :cascade do |t|
-    t.integer  "questions_id"
-    t.integer  "exams_id"
-    t.integer  "answers_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "question_id"
+    t.integer  "exam_id"
+    t.integer  "answer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "results", ["answers_id"], name: "index_results_on_answers_id"
-  add_index "results", ["exams_id"], name: "index_results_on_exams_id"
-  add_index "results", ["questions_id"], name: "index_results_on_questions_id"
+  add_index "results", ["answer_id"], name: "index_results_on_answer_id"
+  add_index "results", ["exam_id"], name: "index_results_on_exam_id"
+  add_index "results", ["question_id"], name: "index_results_on_question_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
