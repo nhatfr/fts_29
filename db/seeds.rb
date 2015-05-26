@@ -1,3 +1,4 @@
+
 10.times do |n|
   name = "Category #{n+1}"
   max_question = "30"
@@ -24,3 +25,15 @@ User.create!(name: 'Normal',
              confirmed_at: Time.zone.now,
              confirmation_sent_at: Time.zone.now
 )
+
+30.times do |n|
+  content = "Is this question #{n+1}"
+  Question.create!(content: content, category_id: 1)
+end
+
+4.times do |n|
+  content = "this is answer #{n+1}"
+  Answer.create!(content: content, question_id: 1)
+end
+
+
