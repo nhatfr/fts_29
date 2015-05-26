@@ -78,3 +78,13 @@ en:
   create_fail: "Create fail"
   update_success: "Update success"
   update_fail: "Update fail"
+  new_question: "New question"
+  update_success: "Update success"
+  delete_sucess: "Deleted"
+  edit_question: "Edit Question"
+  remove: "Remove"
+  show_question: "Show Question"
+  belong: "Belongs to"
+  correct: "Corrrect"
+  add_answer: "Add a answer"
+  

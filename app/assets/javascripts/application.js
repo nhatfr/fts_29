@@ -14,4 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require application_jquery
 //= require_tree .
+
+$(document).on('click', 'input[type=checkbox]', function () {
+  $("input[type=checkbox]").not($(this)).prop('checked', false);
+});
