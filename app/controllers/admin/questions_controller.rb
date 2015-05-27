@@ -14,6 +14,7 @@ class Admin::QuestionsController < ApplicationController
   def create
     @question = Question.new question_params
     if @question.save
+      Notifier.send_alert(@question).deliver_now
       flash[:success] = t :create_sucess
       redirect_to admin_questions_path
     else

@@ -5,6 +5,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'ransack'
 gem 'rails_config'
+gem 'delayed_job_active_record'
+gem 'daemon-spawn'
 gem 'whenever', require: false
 gem 'bcrypt'
 gem 'faker'
