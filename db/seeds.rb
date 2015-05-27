@@ -1,11 +1,3 @@
-
-10.times do |n|
-  name = "Category #{n+1}"
-  max_question = "30"
-  max_time = "20"
-  Category.create!(name: name, max_question: max_question, max_time: max_time)
-end
-
 User.create!(name: 'Administrator',
              email: 'admin@gmail.com',
              password: '12345678',
@@ -36,4 +28,21 @@ end
   Answer.create!(content: content, question_id: 1)
 end
 
+10.times do |n|
+  name = "Category #{n+1}"
+  max_question = "10"
+  max_time = "20"
+  Category.create!(name: name, max_question: max_question, max_time: max_time)
+end
 
+categories = Category.all
+20.times do |n|
+  content = "English#{n+1}"
+  categories.each {|category| category.questions.create! content: content}
+end
+
+questions = Question.order(:created_at).all
+4.times do |n|
+  content = "Vietnamese#{n+1}"
+  questions.each {|question| question.answers.create! content: content, correct: n == 1}
+end
