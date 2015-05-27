@@ -17,6 +17,36 @@
 //= require application_jquery
 //= require_tree .
 
-$(document).on('click', 'input[type=checkbox]', function () {
-  $("input[type=checkbox]").not($(this)).prop('checked', false);
+$(document).ready(function(){
+  $(function(){
+    var seconds = $("h2[id=countdown]").attr("value");
+    var interval = setInterval(function(){
+      var hours = Math.floor(seconds/3600);
+      var minutesLeft = Math.floor((seconds) - (hours*3600));
+      var minutes = Math.floor(minutesLeft/60);
+      var remainingSeconds = seconds % 60;
+      if(hours < 10){
+        hours = "0" + hours;
+      }
+      if(minutes < 10){
+        minutes = "0" + minutes;
+      }
+      if(remainingSeconds < 10){
+        remainingSeconds = "0" + remainingSeconds; 
+      }     
+      $("h2[id=countdown]").html(hours + " : " + minutes + " : " + remainingSeconds);
+      if(seconds <= 0){
+        clearInterval(interval);
+        $("h2[id=countdown]").html("Completed");
+        alert("Time up");
+        $("input[name=btn_submit]").click();
+      }else{
+        seconds--;
+      }
+    }, 1000);
+  });
+});
+
+$(document).on("click", "input[type=checkbox]", function () {
+  $("input[type=checkbox]").not($(this)).prop("checked", false);
 });

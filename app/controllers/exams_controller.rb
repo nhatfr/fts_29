@@ -1,10 +1,14 @@
 class ExamsController < ApplicationController
   load_and_authorize_resource
+  before_action :update_status_completed, only: :update
 
   def index
     @exam = Exam.new
     @categories = Category.all
     @exams = @exams.order_created.paginate page: params[:page], per_page: Settings.per_page    
+  end
+
+  def show
   end
 
   def create    
@@ -20,7 +24,9 @@ class ExamsController < ApplicationController
   def edit
     if @exam.created?
       @exam.update_start_time Time.zone.now 
-      @exam.update_status :testing    
+      @exam.update_status :testing
+    elsif @exam.completed?
+      redirect_to exam_path(@exam)
     end
   end
 
@@ -36,5 +42,9 @@ class ExamsController < ApplicationController
   private  
   def exam_params
     params.require(:exam).permit :category_id, results_attributes: [:id, :answer_id]
+  end
+  
+  def update_status_completed
+    @exam.update_status :completed if @exam.time_up?
   end
 end
