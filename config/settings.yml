@@ -1,2 +1,3 @@
 per_page: 20
-answer_num: 4
+answer_num: 5
+mailer_from: <%= ENV["EMAIL"] %>
