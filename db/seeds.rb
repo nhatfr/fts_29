@@ -18,6 +18,16 @@ User.create!(name: 'Normal',
              confirmation_sent_at: Time.zone.now
 )
 
+40.times do |n|
+  User.create!(name: "member#{n+1}",
+               email: "example#{n+1}@gmail.com",
+               password: "password",
+               confirmation_token: "password",
+               confirmed_at: Time.zone.now,
+               confirmation_sent_at: Time.zone.now
+  )
+end
+
 10.times do |n|
   name = "Category #{n+1}"
   max_question = "10"

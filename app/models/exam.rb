@@ -68,7 +68,7 @@ class Exam < ActiveRecord::Base
     current_time = Time.now
     @exams = Exam.all
     @exams.each do |exam|
-      if exam.created? && exam.created_at < current_time.days_ago Settings.number_days
+      if exam.created? && exam.created_at < current_time.days_ago(Settings.number_days)
         exam.destroy
       end
     end
