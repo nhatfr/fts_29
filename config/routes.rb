@@ -6,9 +6,13 @@ Rails.application.routes.draw do
     get "sign_up" => "devise/registration#new"
   end
 
-  root "static_pages#index"
   resources :categories, only: :index
   resources :exams, except: :new
+
+  authenticated :user do
+    root to: "exams#index", as: :authenticated_root
+  end
+  root "static_pages#index"
 
   namespace :admin do
     root to: "categories#index"

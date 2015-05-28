@@ -2,7 +2,7 @@ class CreateExams < ActiveRecord::Migration
   def change
     create_table :exams do |t|
       t.datetime :start_at
-      t.integer :mark
+      t.string :mark
       t.integer :status
       t.references :category, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true

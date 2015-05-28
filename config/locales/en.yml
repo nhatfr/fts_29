@@ -94,3 +94,8 @@ en:
   result: "Result"
   time: "Time"
   action: "Action"
+  question: "Questions"
+  correct: "Correct"
+  your_answer: "Your answers"
+  exam_view: "View"
+  mark: "Mark"
