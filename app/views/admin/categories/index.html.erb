@@ -6,12 +6,12 @@
       <tr>
         <th><%= t :id %></th>
         <th><%= t :category_name %></th>
-        <th><%= t :learning_process %></th>
         <th><%= t :max_question %></th>
         <th><%= t :max_time %></th>
         <th><%= t :action %></th>
       </tr>
       <%= render @categories %>
     </table>
+    <%= will_paginate %>
   </div>
 </div>

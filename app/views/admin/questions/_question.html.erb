@@ -1,6 +1,25 @@
-<p>
-  <%= question.id %>
-  <%= question.content %>
-  <%= t :belong %>
-  <%= question.category.name %>
-</p>
+<tr>
+  <td><%= question.id %></td>
+  <td><%= question.content %></td>
+  <td><%= question.category.name %></td>
+  <td>
+    <%= link_to t(:edit), edit_admin_question_path(question), class: "btn btn-primary" %>
+    <%= link_to t(:delete), admin_question_path(question),
+                            method: :delete, data: {confirm: (t :confirm)}, class: "btn btn-primary" %>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapse_<%= question.id %>">
+      <%= t :show_answer %>
+    </a>
+    <div class="collapse" id="collapse_<%= question.id %>">
+      <div class="well">
+        <table class="table table-bordered">
+          <tr>
+            <th><%= t :id %></th>
+            <th><%= t :answer %></th>
+            <th><%= t :correct %></th>
+          </tr>
+          <%= render question.answers %>
+        </table>
+      </div>
+    </div>
+  </td>
+</tr>
