@@ -1,0 +1,8 @@
+This is your exam's results
+Mark: <%= @exam.mark %>
+<% @exam.results.each do |result| %>
+  Question: <%= result.question.content %>, 
+  Your answer: <%= result.answer.content unless result.answer.nil? %>, 
+  Correct: 
+  <%= (result.answer.nil? || !result.answer.correct?) ? "False" : "True" %>
+<% end %>

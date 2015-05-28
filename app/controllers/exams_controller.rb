@@ -1,6 +1,5 @@
 class ExamsController < ApplicationController
   load_and_authorize_resource
-  before_action :update_status_completed, only: :update
 
   def index
     @exam = Exam.new
@@ -42,9 +41,5 @@ class ExamsController < ApplicationController
   private  
   def exam_params
     params.require(:exam).permit :category_id, results_attributes: [:id, :answer_id]
-  end
-  
-  def update_status_completed
-    @exam.update_status :completed if @exam.time_up?
   end
 end

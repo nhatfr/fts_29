@@ -1,4 +1,14 @@
 User.create!(name: 'Administrator',
+             email: 'admin@gmail.com',
+             password: '12345678',
+             password_confirmation: '12345678',
+             level: 1,
+             confirmation_token: "123456789",
+             confirmed_at: Time.zone.now,
+             confirmation_sent_at: Time.zone.now
+)
+
+User.create!(name: 'Nhat',
              email: 'tr.vnhat@gmail.com',
              password: '12345678',
              password_confirmation: '12345678',

@@ -1,0 +1,18 @@
+<h2>This is your exam's results</h2>
+<h3>Mark: <%= @exam.mark %></h3>
+<table border="1">
+  <tr>
+    <th>Question</th>
+    <th>Your answer</th>
+    <th>Correct</th>
+  </tr>
+  <% @exam.results.each do |result| %>
+    <tr>
+      <td><%= result.question.content %></td>
+      <td><%= result.answer.content unless result.answer.nil? %></td>
+      <td>
+        <%= (result.answer.nil? || !result.answer.correct?) ? "False" : "True" %>          
+      </td>
+    </tr>
+  <% end %>
+</table>
