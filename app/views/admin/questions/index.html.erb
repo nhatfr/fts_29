@@ -2,13 +2,13 @@
   <%= link_to t(:create_new_question), new_admin_question_path %>
 </div>
 <%= will_paginate %>
-<% @questions.each do |question| %>
-  <div>
-    <%= render question %>
-    <%= link_to t(:edit), edit_admin_question_path(question) %>
-    <%= link_to t(:delete), admin_question_path(question),
-                            method: :delete, data: {confirm: (t :confirm)} %>
-   <%= render question.answers %>
-  </div>
-<% end %>
+<table class="table table-bordered">
+  <tr>
+    <th><%= t :id %></th>
+    <th><%= t :questions %></th>
+    <th><%= t :categories %></th>
+    <th class="col-md-4"><%= t :action %></th>
+  </tr>
+  <%= render @questions %>
+</table>    
 <%= will_paginate %>
