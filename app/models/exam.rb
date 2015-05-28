@@ -5,7 +5,7 @@ class Exam < ActiveRecord::Base
 
   before_create :create_default_status
   after_create :create_results
-  before_update :marking, if: :testing?
+  before_update :sum_correct, :update_status_completed, if: :testing?
 
   accepts_nested_attributes_for :results, allow_destroy: true
 
@@ -30,7 +30,7 @@ class Exam < ActiveRecord::Base
   end
   
   private
-  def marking   
+  def sum_correct   
     mark = results.select do |result|
       result.answer.correct? unless result.answer.nil?
     end.count
@@ -44,6 +44,13 @@ class Exam < ActiveRecord::Base
   def create_results
     @questions = category.questions.random_questions category.max_question
     @questions.each {|question| results.create question: question}
+  end
+
+  def update_status_completed
+    if time_up?
+      self.update_status :completed
+      ResultMailer.result_exam(self).deliver_now
+    end
   end
 
   def execute_time
