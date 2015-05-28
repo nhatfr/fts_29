@@ -1,0 +1,8 @@
+<% provide :title, t(:All_user) %>
+<%= will_paginate %>
+<div class="container">
+  <table class="table table-bordered">
+    <%= render @users %>
+  </table>
+</div>
+<%= will_paginate %>

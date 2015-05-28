@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: :index
   resources :exams, except: :new
-
+  
   authenticated :user do
     root to: "exams#index", as: :authenticated_root
   end
@@ -18,5 +18,6 @@ Rails.application.routes.draw do
     root to: "categories#index"
     resources :categories, except: :show
     resources :questions
+    resources :users, only: [:index, :update, :destroy]
   end
 end
