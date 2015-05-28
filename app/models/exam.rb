@@ -53,4 +53,24 @@ class Exam < ActiveRecord::Base
   def max_time
     self.category.max_time * 60
   end
+  
+  def self.send_alert_mail
+    @exams = Exam.all
+    @exams.each do |exam|
+      diff_time = (Time.now - exam.created_at)/Settings.seconds_per_minute
+      if exam.created? && diff_time >= Settings.dead_time
+        AlertMailer.alert_exam(exam).deliver_now
+      end
+    end
+  end
+
+  def self.delete_fake_exam
+    current_time = Time.now
+    @exams = Exam.all
+    @exams.each do |exam|
+      if exam.created? && exam.created_at < current_time.days_ago Settings.number_days
+        exam.destroy
+      end
+    end
+  end
 end

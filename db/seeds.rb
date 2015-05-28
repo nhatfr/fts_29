@@ -1,5 +1,5 @@
 User.create!(name: 'Administrator',
-             email: 'admin@gmail.com',
+             email: 'tr.vnhat@gmail.com',
              password: '12345678',
              password_confirmation: '12345678',
              level: 1,
