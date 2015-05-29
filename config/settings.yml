@@ -3,5 +3,5 @@ answer_num: 5
 mailer_from: <%= ENV["EMAIL"] %>
 seconds_per_minute: 60
 seconds_per_hour: 3600
-dead_time: 2
+dead_time: 10
 number_days: 1
